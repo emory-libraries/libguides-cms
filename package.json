@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Style overrides for LibGuides CMS",
   "scripts": {
-    "watch": "sass -w scss/:css/ --sourcemap=none"
+    "watch": "sass -w src/scss/:dist/css/ --sourcemap=none",
+    "deploy": "sftp-deploy"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/emory-libraries/libguides-cms/issues"
   },
-  "homepage": "https://github.com/emory-libraries/libguides-cms#readme"
+  "homepage": "https://github.com/emory-libraries/libguides-cms#readme",
+  "devDependencies": {
+    "dploy": "^1.2.0"
+  }
 }

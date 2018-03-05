@@ -22,5 +22,5 @@ This file resides at `template.library.emory.edu/systems/springshare/libguides-c
 To link to this file, use the following:
 
 ```html
-<link rel="stylesheet" href="//template.library.emory.edu/systems/springshare/libguides-cms/css/">
+<link rel="stylesheet" href="//template.library.emory.edu/systems/springshare/libguides-cms/css/libguides.css">
 ```

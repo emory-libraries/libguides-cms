@@ -1,2 +1,5 @@
 .sass-cache/
+node_modules/
 *.css.map
+dploy.yaml
+.DS_Store
