@@ -1,0 +1,23 @@
+{
+  "name": "libguides-cms",
+  "version": "1.0.0",
+  "description": "Style overrides for LibGuides CMS",
+  "scripts": {
+    "watch": "sass -w scss/:css/ --sourcemap=none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emory-libraries/libguides-cms.git"
+  },
+  "keywords": [
+    "libguides",
+    "css",
+    "scss"
+  ],
+  "author": "Lauren Hamel",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/emory-libraries/libguides-cms/issues"
+  },
+  "homepage": "https://github.com/emory-libraries/libguides-cms#readme"
+}
