@@ -4,7 +4,7 @@
   "description": "Style overrides for LibGuides CMS",
   "scripts": {
     "watch": "sass -w src/scss/:dist/css/ --sourcemap=none",
-    "deploy": "sftp-deploy"
+    "deploy": "dploy libguides"
   },
   "repository": {
     "type": "git",
