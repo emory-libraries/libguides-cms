@@ -1,0 +1,45 @@
+$colors: (
+
+  'blue': (
+    'base': rgb(0, 40, 123),
+    'light': rgb(94, 133, 201),
+    'powder': rgb(232, 235, 244),
+  ),
+  
+  'gold': (
+    'base': rgb(210, 142, 0),
+    'light': rgb(210, 176, 0),
+  ),
+  
+  'green': (
+    'base': rgb(0, 106, 81),
+    'light': rgb(180, 205, 149),
+  ),
+  
+  'white': (
+    'base': rgb(255, 255, 255),
+    'off': rgb(245, 245, 245),
+  ),
+  
+  'grey': (
+    'base': rgb(204, 204, 204),
+    'light': rgb(230, 230, 230),
+    'medium': rgb(153, 153, 153),
+    'dark': rgb(94, 93, 91),
+  ),
+  
+  'gray': (
+    'base': rgb(204, 204, 204),
+    'light': rgb(230, 230, 230),
+    'medium': rgb(153, 153, 153),
+    'dark': rgb(94, 93, 91),
+  ),
+  
+  'black': (
+    'base': rgb(0, 0, 0),
+    'off': rgb(51, 51, 51),
+  )
+  
+);
+
+$brandy-colors-map: $colors;

@@ -1,0 +1,18 @@
+@include google-font('PT Serif' 400 700 400italic 700italic);
+@include google-font('PT Sans Narrow');
+@include google-font('PT Sans' 400 700 400italic);
+@include google-font('PT Mono');
+@include google-font('PT Sans Caption', 'PT Serif Caption');
+
+$fonts: (
+  'body': ('PT Serif', sans-serif),
+  'heading': ('PT Sans Narrow', sans-serif),
+  'code': ('PT Mono', monospace),
+  'label': ('PT Sans', sans-serif),
+  'caption': (
+    'sans': ('PT Sans Caption', sans-serif),
+    'serif': ('PT Serif Caption', serif)
+  )
+);
+
+$brandy-fonts-map: $fonts;

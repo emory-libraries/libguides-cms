@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Style overrides for LibGuides CMS",
   "scripts": {
-    "watch": "sass -w src/scss/:dist/css/ --sourcemap=none",
-    "deploy": "dploy libguides"
+    "watch": "sass --watch src/scss:dist/css --sourcemap=none",
+    "build": "sass --update src/scss:dist/css --sourcemap=none",
+    "deploy": "npm run build && dploy libguides"
   },
   "repository": {
     "type": "git",

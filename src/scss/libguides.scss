@@ -1,5 +1,13 @@
-html, body {
-    font-size: 16px;
+/// Load vendors, utilities, configurations, components, and core styles, respectively.
+@import 'vends/_master';
+@import 'utils/_master';
+@import 'config/_master';
+@import 'comps/_master';
+@import 'core/_master';
+
+html, 
+body {
+  font-size: 16px;
 }
 body {
     font-family: 'PT Serif', serif;
