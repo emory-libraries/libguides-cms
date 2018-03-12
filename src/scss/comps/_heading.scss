@@ -1,0 +1,13 @@
+/// Allows for quick and easy application of heading styles
+@mixin heading( $level: 1, $min: 1em, $max: 2em, $levels: 6 ) {
+  
+  $scale: numeric-scale($min, $max, $levels);
+  
+  font-family: font('heading');
+  line-height: 1.25;
+  font-weight: normal;
+  margin-top: 1em;
+  margin-bottom: .5em;
+  font-size: nth($scale, $level);
+  
+}

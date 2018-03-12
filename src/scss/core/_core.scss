@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  font-size: 16px;
+  font-family: font('body');
+  line-height: 1.25;
+  color: $brandy-dark-text;
+  
+  // Scales fonts responsively across various breakpoints.
+  @if( config('responsive-text.enabled') ) {
+    
+    @each $screen, $break in $screens {
+      
+      @if( map-has-key(config('responsive-text.scale'), $screen) ) {
+        
+        $scale: config('responsive-text.scale.#{$screen}');
+        
+        @include breakpoint($break) { font-size: 16px * $scale; }
+        
+      }
+      
+    }
+    
+  }
+  
+}
+
+a {
+  color: color('blue');
+}

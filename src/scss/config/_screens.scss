@@ -1,0 +1,8 @@
+/// Defines screen breakpoints.
+$screens: (
+  'small': max-width 500px,
+  'medium': 800px 501px,
+  'large': min-width 801px
+);
+
+$brandy-screens-map: $screens;

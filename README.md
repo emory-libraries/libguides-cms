@@ -17,10 +17,10 @@ These files are used for development only.
 
 The file `libguides.css` contains the CSS overrides for LibGuides CMS. It adds Emory Libraries' branding and creates a responsive layout wherever possible.
 
-This file resides at `template.library.emory.edu/systems/springshare/libguides-cms/css/`.
+This file resides at `template.library.emory.edu/systems/springshare/libguides-cms/current/css/`.
 
 To link to this file, use the following:
 
 ```html
-<link rel="stylesheet" href="//template.library.emory.edu/systems/springshare/libguides-cms/css/libguides.css">
+<link rel="stylesheet" href="//template.library.emory.edu/systems/springshare/libguides-cms/current/css/libguides.css">
 ```

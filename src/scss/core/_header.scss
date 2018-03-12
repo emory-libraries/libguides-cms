@@ -1,0 +1,14 @@
+header {
+  background-color: color('blue');
+  max-width: config('page-max-width');
+  margin: 0 auto;
+  
+  #logo {
+    
+    fill: color('white');
+    
+    @include large { max-height: 150px; };
+    
+  }
+  
+}

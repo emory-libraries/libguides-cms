@@ -1,3 +1,4 @@
+/// Defines color values.
 $colors: (
 
   'blue': (
@@ -43,3 +44,5 @@ $colors: (
 );
 
 $brandy-colors-map: $colors;
+$brandy-light-text: color('white');
+$brandy-dark-text: color('black');

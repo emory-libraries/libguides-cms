@@ -1,6 +1,32 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic);
 @import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow);
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=PT+Mono);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans+Caption);
+@import url(https://fonts.googleapis.com/css?family=PT+Serif+Caption);
+body {
+  margin: 0;
+  font-size: 16px;
+  font-family: "PT Serif", sans-serif;
+  line-height: 1.25;
+  color: black; }
+  @media (min-width: 801px) {
+    body {
+      font-size: 18px; } }
+
+a {
+  color: #00287b; }
+
+header {
+  background-color: #00287b;
+  max-width: 1170px;
+  margin: 0 auto; }
+  header #logo {
+    fill: white; }
+    @media (min-width: 801px) {
+      header #logo {
+        max-height: 150px; } }
+
 html,
 body {
   font-size: 16px; }
@@ -63,7 +89,8 @@ a {
 
 /* Profile Box */
 .s-lib-profile-image img {
-  box-shadow: none; }
+  -webkit-box-shadow: none;
+          box-shadow: none; }
 
 .s-lib-profile-name {
   font-weight: 400;
@@ -74,7 +101,8 @@ a {
 .s-lib-box {
   border-color: transparent;
   border-width: 0;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   background-color: #fff; }
 
 #s-lg-guide-name, .s-lib-box .s-lib-box-title {
@@ -118,6 +146,7 @@ a {
   background-color: #002878 !important;
   border-color: #002878;
   background-image: none;
+  -webkit-transition: all .25s;
   transition: all .25s; }
 
 .btn-primary.active,
@@ -133,6 +162,7 @@ a {
   color: #002878;
   background-color: #fff !important;
   border-color: #002878;
+  -webkit-transition: all .25s;
   transition: all .25s; }
 
 .footer {

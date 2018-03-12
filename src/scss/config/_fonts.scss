@@ -1,9 +1,11 @@
+/// Loads Google Fonts.
 @include google-font('PT Serif' 400 700 400italic 700italic);
 @include google-font('PT Sans Narrow');
 @include google-font('PT Sans' 400 700 400italic);
 @include google-font('PT Mono');
 @include google-font('PT Sans Caption', 'PT Serif Caption');
 
+/// Defines font values.
 $fonts: (
   'body': ('PT Serif', sans-serif),
   'heading': ('PT Sans Narrow', sans-serif),

@@ -1,0 +1,32 @@
+/// Shorthand for small breakpoints.
+@mixin small() {
+  
+  @include breakpoint( screen('small') ) {
+    
+    @content;
+    
+  };
+  
+}
+
+/// Shorthand for medium breakpoints.
+@mixin medium() {
+  
+  @include breakpoint( screen('smamediuml') ) {
+    
+    @content;
+    
+  };
+  
+}
+
+/// Shorthand for large breakpoints.
+@mixin large() {
+  
+  @include breakpoint( screen('large') ) {
+    
+    @content;
+    
+  };
+  
+}
