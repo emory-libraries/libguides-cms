@@ -4,25 +4,48 @@
 
 /// Creates a cross-browser linear gradient
 ///
+/// @requires {function} last
+/// @requires {function} head
 /// @param {arglist} $args - Some arguments defining the gradient
-@mixin linear-gradient( $args... ) {
+/// @param {string} $important - Sets the `!important` flag if passed in as the last argument
+@mixin linear-gradient( $args... /* $important */ ) {
+  
+  $important: '';
+  
+  @if( last($args) == '!important' ) { 
+    
+    $important: last($args);
+    $args: join((), head($args), comma);
+  
+  }
 
-  background-image: -webkit-linear-gradient($args);
-  background-image: -moz-linear-gradient($args);
-  background-image: -o-linear-gradient($args);
-  background-image: linear-gradient($args);
+  background-image: -webkit-linear-gradient($args) #{$important};
+  background-image: -moz-linear-gradient($args) #{$important};
+  background-image: -o-linear-gradient($args) #{$important};
+  background-image: linear-gradient($args) #{$important};
   
 }
 
 /// Creates a cross-browser layered linear gradient from one or more gradient arguments
 ///
+/// @requires {function} last
+/// @requires {function} head
 /// @param {arglist} $gradients - One or more argument lists for a gradient
-@mixin layered-linear-gradient( $gradients... ) {
+/// @param {string} $important - Sets the `!important` flag if passed in as the last argument
+@mixin layered-linear-gradient( $gradients... /* $important */ ) {
   
   $webkit: ();
   $moz: ();
   $o: ();
   $args: ();
+  $important: '';
+  
+  @if( last($args) == '!important' ) { 
+    
+    $important: last($args);
+    $args: join((), head($args), comma);
+  
+  }
   
   @each $gradient in $gradients {
     
@@ -33,29 +56,53 @@
     
   }
 
-  background-image: $webkit;;
-  background-image: $moz;
-  background-image: $o;
-  background-image: $args;
+  background-image: $webkit  #{$important};
+  background-image: $moz  #{$important};
+  background-image: $o  #{$important};
+  background-image: $args  #{$important};
   
 }
 
 /// Creates a cross-browser radial gradient
 ///
+/// @requires {function} last
+/// @requires {function} head
 /// @param {arglist} $args - Some arguments defining the gradient
-@mixin radial-gradient( $args... ) {
+/// @param {string} $important - Sets the `!important` flag if passed in as the last argument
+@mixin radial-gradient( $args... /* $important */ ) {
   
-  background-image: -webkit-radial-gradient($args);
-  background-image: -moz-radial-gradient($args);
-  background-image: -o-radial-gradient($args);
-  background-image: radial-gradient($args);
+  $important: '';
+  
+  @if( last($args) == '!important' ) { 
+    
+    $important: last($args);
+    $args: join((), head($args), comma);
+  
+  }
+  
+  background-image: -webkit-radial-gradient($args)  #{$important};
+  background-image: -moz-radial-gradient($args)  #{$important};
+  background-image: -o-radial-gradient($args)  #{$important};
+  background-image: radial-gradient($args)  #{$important};
   
 }
 
 /// Creates a cross-browser layered radial gradient from one or more gradient arguments
 ///
+/// @requires {function} last
+/// @requires {function} head
 /// @param {arglist} $gradients - One or more argument lists for a gradient
-@mixin layered-radial-gradient( $gradients... ) {
+/// @param {string} $important - Sets the `!important` flag if passed in as the last argument
+@mixin layered-radial-gradient( $gradients... /* $important */ ) {
+  
+  $important: '';
+  
+  @if( last($args) == '!important' ) { 
+    
+    $important: last($args);
+    $args: join((), head($args), comma);
+  
+  }
   
   $webkit: ();
   $moz: ();
@@ -71,10 +118,10 @@
     
   }
 
-  background-image: $webkit;;
-  background-image: $moz;
-  background-image: $o;
-  background-image: $args;
+  background-image: $webkit  #{$important};
+  background-image: $moz  #{$important};
+  background-image: $o  #{$important};
+  background-image: $args  #{$important};
   
 }
 

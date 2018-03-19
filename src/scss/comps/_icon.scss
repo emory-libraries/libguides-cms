@@ -1,0 +1,26 @@
+/// Allows for quick and easy inclusion of Font Awesome and other icons.
+@mixin icon( $icon, $pseudo: '::before', $family: FontAwesome ) {
+  
+  @if( $icon == null ) { $icon: ''; }
+  
+  &#{$pseudo} {
+    content: $icon;
+    font-family: $family;
+    @content;
+  }
+  
+}
+
+/// A helper for adding icons within a secondary navigation menu.
+  @mixin nav-menu-icon( $icon ) {
+      
+    @include icon( $icon, '::after' ) {
+      display: block;
+      position: absolute;
+      right: .5em;
+      line-height: inherit;
+      bottom: 0;
+      font-size: 10px;
+    };
+    
+  }

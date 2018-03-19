@@ -5,8 +5,8 @@ module.exports = function(grunt) {
     secret: grunt.file.readJSON("secret.json"),
     watch: {
       scss: {
-        files: ['src/scss/*.scss'],
-        tasks: ['sass:dev', 'postcss', 'ssh_deploy:production']
+        files: ['src/scss/**/*.scss'],
+        tasks: ['sass:dev', 'postcss', 'copy', 'ssh_deploy:production']
       },
       config: {
         options: {
@@ -26,9 +26,9 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true, 
-          cwd: 'src/scss/', 
+          cwd: 'src/scss', 
           src: ['*.scss'], 
-          dest: '../dist/css/', 
+          dest: 'dist/css', 
           ext: '.css'
         }]
       },
@@ -40,9 +40,9 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true, 
-          cwd: 'src/scss/', 
+          cwd: 'src/scss', 
           src: ['*.scss'], 
-          dest: '../dist/css/', 
+          dest: 'dist/css', 
           ext: '.css'
         }]
       }
@@ -76,22 +76,36 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'dist/css/',
           src: ['*.css', '!*.min.css'],
-          dest: '.',
+          dest: '/dist/css/',
           ext: '.min.css'
         }]
       }
+    },
+    copy: {
+      assets: {
+        files: [
+          {expand: true, cwd: 'src', src: ['fonts/**/*'], dest: 'dist/'}
+        ]
+      }
+    },
+    clean: {
+      dist: ['dist/']
     }
   });
   
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-ssh-deploy');
   
   grunt.registerTask('startup', [
+    'clean:dist',
     'sass:dev',
     'postcss',
+    'copy',
     'ssh_deploy:production'
   ]);
   grunt.registerTask('dev', [
@@ -99,6 +113,7 @@ module.exports = function(grunt) {
     'watch'
   ]);
   grunt.registerTask('dist', [
+    'clean:dist',
     'sass:dist',
     'postcss',
     'cssmin',

@@ -1,0 +1,366 @@
+/// Defines styles for responsive navigation menu toggle.
+%toggle {
+  border: 1px solid color('blue', 'indigo') !important;
+  cursor: pointer;
+  transition: all .2s ease;
+
+  .icon-bar { background-color: color('blue') !important; }
+  
+}
+
+/// Defines styles for navigation menu item.
+%item {
+  border: 1px solid color('grey');
+  border-top: 1px solid color('grey', 'light');
+  border-left: 1px solid color('grey', 'light');
+  transition: all .2s ease-out;
+  @include on-hover-focus( background-color, color('blue', 'powder'), color('blue', 'light') );
+  @include on-hover-focus( color, color('blue'), color('white') );
+  
+  &.active { 
+    background-color: color('blue', 'light');
+    color: color('white');
+  }
+  
+  a { 
+    background-color: transparent !important;
+    color: inherit !important; 
+    font-weight: inherit !important;
+    padding: .5em !important;
+    width: 100%;
+    @include absolute-center-contents;
+
+    @include system-mobile {
+      padding: px(1.45em) px(2em) !important;
+      height: px(1.75em);
+    };
+
+  }
+  
+  @include system-desktop {
+    @include first-child { border-left: 0; }
+    @include last-child { border-right: 0; }
+    float: none;
+    flex-grow: 1;
+  }
+
+  @include system-mobile {
+    @include last-child { border-bottom: 0; }
+  };
+  
+}
+
+/// Defines styles for navigation submenu item.
+%subitem {
+  border: 1px solid color('grey');
+  border-top: 1px solid color('grey', 'light');
+  border-left: 1px solid color('grey', 'light');
+  transition: all .2s ease-out;
+  @include on-hover-focus( background-color, color('white', 'off') !important, color('white') !important );
+  @include on-hover-focus( color, color('blue') !important, color('blue') !important );
+  
+  &.active { 
+    background-color: color('white');
+    color: color('blue');
+  }
+  
+  > a, span {
+    background-color: transparent;
+    color: inherit; 
+    font-weight: inherit;
+    padding: .5em;
+    width: 100%;
+    
+    @include system-mobile { height: px(1.75em); }
+    
+  }
+  
+  @include system-mobile { @include last-child { border-bottom: 0; }; }
+  
+}
+
+/// Defines styles for navigation submenu headers.
+%subheader {
+  padding: .5em;
+  background-color: color('white');
+  color: color('grey', 'dark');
+  border: 1px solid color('grey');
+  border-top: 1px solid color('grey', 'light');
+  border-left: 1px solid color('grey', 'light');
+}
+
+/// Defines styles for the LibApps menu items.
+%libitem {
+  
+  border: 1px solid color('grey');
+  border-top: 1px solid color('grey', 'light');
+  border-left: 1px solid color('grey', 'light');
+  transition: all .2s ease-out;
+  @include on-hover-focus( background-color, color('white', 'off') !important, color('white') !important );
+  @include on-hover-focus( color, color('blue') !important, color('blue') !important );
+  
+  > a, span {
+    background-color: transparent;
+    width: 100%;
+    font-weight: inherit;
+    color: inherit;
+    display: block;
+    
+    @include system-mobile{ height: px(1.75em); }
+    
+  }
+  
+  // LibApps use a `span` for the active item.
+  > span { 
+    background-color: color('white');
+    color: color('blue');
+  }
+  
+}
+
+/// Defines styles for the LibApps menu headers.
+%libheader { @extend %subheader; }
+
+/// Styles the front-end navigation bar (primary).
+header .navbar:not(.s-lib-cmd-bar) {
+  border-radius: 0 !important;
+  font-family: font('label');
+  background-color: color('blue', 'powder');
+  border: 0;
+  min-height: 0;
+
+  @include system-mobile { border-bottom: 1px solid color('blue', 'indigo'); }
+
+  .container { width: 100% !important; padding: 0; }
+
+  .navbar-brand { display: none; }
+
+  .navbar-collapse { @include padding-x( 0 ); }
+
+  .navbar-toggle { @extend %toggle; }
+
+  .navbar-nav { @include margin-y( 0 !important ); }
+
+  .navbar-nav, .navbar-header, .navbar-collapse { @include margin-x( auto !important ); }
+
+  .nav {
+    display: flex;
+    width: 100%;
+    font-size: .75em;
+
+    li { @extend %item; }
+
+    @include system-mobile { flex-direction: column; };
+
+  }
+
+}
+
+/// Styles for the back-end navigation bar (primary).
+.s-lib-cmd-bar {
+  background-image: none;
+  background-color: color('blue', 'powder');
+  border-bottom: 1px solid color('blue', 'indigo');
+  font-family: font('label');
+  font-weight: normal;
+  
+  // Needed to ensure that all menu items have the same height.
+  $min-height: 43px;
+  
+  @include system-mobile { border-bottom: 0; }
+  
+  #s-lib-app-anchor {
+    @include border-left-radius( 0 );
+    border-top: 0;
+    border-left: 0;
+  }
+  
+  .navbar-header { @include system-mobile { border-bottom: 1px solid color('blue', 'indigo'); } }
+  
+  .navbar-toggle { @extend %toggle; }
+  
+  .navbar-collapse {
+    box-shadow: none;
+    
+    @include system-mobile {
+      
+      &.in { border-bottom: 1px solid color('blue', 'indigo'); }
+      
+    };
+    
+  }
+  
+  // Navigation Buttons
+  .nav:not(.s-lib-cmd-bar-acctlinks):not(.navbar-brand) {
+    display: flex;
+    font-size: px(.75em);
+    
+    > li:not(.divider-vertical):not(.divider):not(.s-lib-app-dropdown):not(.dropdown-header) { 
+      @extend %item; 
+      
+      a { height: 100%; }
+      
+    }
+    
+    .divider-vertical, .divider { display: none; }
+    
+    .dropdown-menu {
+      padding: 0;
+      border-top: 1px solid color('grey');
+      box-shadow: none;
+      
+      li:not(.dropdown-header) { @extend %subitem; }
+      
+      .dropdown-header { @extend %subheader; }
+      
+      @include system-desktop {
+      
+        li {
+          border-right: 0 !important;
+          border-left: 0 !important;
+          border-top: 0 !important;
+
+          @include last-child { border-bottom: 0; }
+
+        }
+        
+      };
+      
+    }
+    
+    @include system-mobile { flex-direction: column; }
+    
+    @include system-desktop {
+      min-height: $min-height;
+      
+      > li:not(.divider-vertical):not(.divider):not(.s-lib-app-dropdown):not(.dropdown-header) { @include border-y( 0 ); }
+      
+    };
+    
+  }
+  
+  // LibApps Menu
+  .navbar-brand {
+    
+    .dropdown-menu {
+      padding: 0;
+      border-top: 1px solid color('grey');
+      box-shadow: none;
+      
+      li:not(.dropdown-header) { @extend %libitem; }
+      
+      .dropdown-header { @extend %libheader; }
+      
+      @include system-desktop {
+      
+        li {
+          border-right: 0 !important;
+          border-left: 0 !important;
+          border-top: 0 !important;
+
+          @include last-child { border-bottom: 0; }
+
+        }
+        
+      };
+      
+    }
+    
+    @include system-desktop { min-height: $min-height !important; }
+    
+  }
+  
+  // Navigation Links
+  .s-lib-cmd-bar-acctlinks {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: px(.75em);
+    background-color: transparent;
+    @include padding-x( 10px );
+    
+    @include system-mobile { background-color: color('white', 'off'); }
+    @include system-desktop { min-height: $min-height; }
+    
+    li {
+      
+      a {
+        padding: 0;
+        font-family: inherit;
+        font-weight: inherit;
+        font-size: inherit;
+        @include on-hover-focus( color, color('blue'), color('blue') );
+        @include on-hover-focus( text-decoration, none, underline );
+        
+        @include system-mobile { margin: px(1em) 0; };
+        
+      }
+      
+    }
+    
+  }
+  
+}
+
+/// Styles the navigation menu (secondary).
+.nav-pills {
+  font-family: font('label');
+  font-weight: normal !important;
+  font-size: px(.8em);
+  line-height: px(1.75em);
+  display: block;
+  list-style-type: none;
+  margin: 0 !important;
+  padding: 0;
+  
+  // All menu items
+  li {
+    @include on-hover-focus( color, color('blue'), color('blue', 'light') );
+    transition: all .15s ease;
+    
+    &.active { 
+      color: color('blue', 'light'); 
+      font-weight: bold;
+    }
+    
+    a { 
+      font-family: inherit !important;
+      color: inherit !important;
+      font-weight: inherit !important;
+      background-color: transparent !important;
+      padding: 0 !important;
+      line-height: inherit;
+      border-bottom: 1px solid color('grey') !important;
+      
+      @include nav-menu-icon( $fa-var-chevron-down );
+      
+    }
+    
+  }
+  
+  // Nested navigation submenus
+  li .s-lg-subtab-ul {
+    padding-left: 40px;
+    
+    // All submenu items
+    li { }
+    
+    // All immediate submenu items
+    > li { 
+      
+      a { @include nav-menu-icon( null ); }
+      
+    }
+    
+  }
+  
+  // Immediate menu items
+  > li { }
+  
+}
+
+/// Styles for all navigation.
+.nav { 
+
+  a { text-decoration: none; }
+
+}

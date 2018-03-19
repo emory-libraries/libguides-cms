@@ -55,8 +55,8 @@
 /// @param {number} $border - Some border setting
 @mixin border-y( $border ){
   
-  border-top: $padding;
-  border-bottom: $padding;
+  border-top: $border;
+  border-bottom: $border;
   
 }
 
@@ -65,25 +65,41 @@
 /// @param {number} $border - Some border setting
 @mixin border-x( $border ){
   
-  border-left: $padding;
-  border-right: $padding;
+  border-left: $border;
+  border-right: $border;
   
 }
 
 /// Sets `top`, `right`, `bottom`, `left`, and optionally `position`  properties in one fell swoop
 ///
+/// @requires {function} is-number
+/// @requires {function} first
+/// @requires {function} last
 /// @param {list | number} $offset - Some `top`, `right`, `bottom`, and `left` values, respectively
 /// @param {string} $position [null] - The positioning property for the element
 @mixin position( $offset, $position: null ) {
   
-  @for $i from 1 through length($offset) {
+  @if( is-number($offset) ) {
     
-    $value: nth($offset, $i); 
+    top: $offset;
+    right: $offset;
+    bottom: $offset;
+    left: $offset;
     
-    @if( $i == 1 ) { top: $value; }
-    @if( $i == 2 ) { right: $value; }
-    @if( $i == 3 ) { bottom: $value; }
-    @if( $i == 4 ) { left: $value; }
+  }
+  
+  @else {
+  
+    @for $i from 1 through length($offset) {
+
+      $value: nth($offset, $i); 
+
+      @if( $i == 1 ) { top: $value; }
+      @if( $i == 2 ) { right: $value; }
+      @if( $i == 3 ) { bottom: $value; }
+      @if( $i == 4 ) { left: $value; }
+
+    }
     
   }
   
@@ -222,9 +238,12 @@
 /// Adds a clearfix for floated elements
 ///
 /// @author Thoughtbot, Inc.
-@mixin clearfix() {
+/// @param {boolean} $before [false] - Whether the clearfix should come `::before` or `::after` the contents of the element
+@mixin clearfix( $before: false ) {
   
-  &::after {
+  $selector: if($before, '::before', '::after');
+  
+  &#{$selector} {
     content: '';
     clear: both;
     display: block;

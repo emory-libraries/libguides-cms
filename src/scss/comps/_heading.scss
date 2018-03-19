@@ -3,11 +3,11 @@
   
   $scale: numeric-scale($min, $max, $levels);
   
-  font-family: font('heading');
-  line-height: 1.25;
-  font-weight: normal;
-  margin-top: 1em;
-  margin-bottom: .5em;
-  font-size: nth($scale, $level);
+  font-family: font('heading') !important;
+  line-height: 1.25 !important;
+  font-weight: normal !important;
+  margin-top: 1em !important;
+  margin-bottom: .5em !important;
+  font-size: nth($scale, $level) !important;
   
 }

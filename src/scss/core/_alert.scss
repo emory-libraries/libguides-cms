@@ -1,0 +1,10 @@
+.alert { @include alert; }
+.alert-info { @include alert(info); }
+.alert-success { @include alert(success); }
+.alert-warning { @include alert(warning); }
+.alert-danger { @include alert(danger); }
+
+.bg-info { background-color: alert-bg(info); }
+.bg-success { background-color: alert-bg(success); }
+.bg-warning { background-color: alert-bg(warning); }
+.bg-danger { background-color: alert-bg(danger); }

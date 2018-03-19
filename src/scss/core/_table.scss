@@ -1,0 +1,41 @@
+.table {
+  font-family: font('label');
+  
+  td, th { border: 0 !important; }
+  
+  caption {
+    font-family: font('caption.sans');
+    font-size: px(.9em);
+  }
+  
+  th {
+    font-family: font('heading');
+    font-size: px(1.25em);
+    font-weight: normal;
+    color: color('grey', 'dark');
+    
+    strong, b { font-weight: inherit; }
+    
+  }
+  
+  td { background-color: transparent; }
+  
+  // Striped Tables
+  &.table-striped {
+    
+    thead { background-color: color('grey', 'light'); }
+    
+    tbody {
+      
+      tr { 
+        @include odd { background-color: transparent; }
+        @include even { background-color: color('white', 'off'); } 
+      }
+      
+    }
+    
+    tfoot { border-top: 1px solid color('grey'); }
+    
+  }
+  
+}

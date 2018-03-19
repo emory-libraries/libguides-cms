@@ -2,7 +2,13 @@
 $screens: (
   'small': max-width 500px,
   'medium': 800px 501px,
-  'large': min-width 801px
+  'large': min-width 801px,
+  
+  'system': (
+    'mobile': max-width 767px,
+    'desktop': min-width 768px,
+    '1-column': 991px 768px,
+    '2-column': min-width 992px
+  )
+  
 );
-
-$brandy-screens-map: $screens;

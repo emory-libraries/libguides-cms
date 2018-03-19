@@ -1,0 +1,12 @@
+.ui-dialog {
+  
+  .ui-dialog-titlebar-close {
+    
+    i {
+      width: auto;
+      @include position( 0, absolute );
+    }
+    
+  }
+  
+}

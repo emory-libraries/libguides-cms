@@ -1,0 +1,50 @@
+.footer {
+  width: 100%;
+  font-size: .8em;
+  @include padding-x( $page-padding !important );
+  font-family: font('label');
+  
+  #s-lg-guide-header-meta { margin: 0; }
+  
+  ul {
+    display: flex;
+    flex-direction: column;
+    
+    li {
+      
+      @include system-mobile {
+        float: none !important;
+        padding: px(1.2em) 0 !important;
+      }
+      
+    }
+    
+    @include system-desktop { 
+      flex-direction: row; 
+      width: 80%;
+      float: left;
+      @include clearfix;
+    };
+    
+    .s-lg-h-separator { @include system-mobile { border: 0; margin: 0; } }
+      
+  }
+  
+  a { 
+    color: color('blue') !important; 
+    @include on-hover-focus( text-decoration, none, underline );
+  }
+  
+  #s-lib-footer-login-link {
+    margin: 0 !important;
+    padding: 0;
+    
+    @include system-mobile {
+      display: block;
+      width: 100%;
+      padding: px(1.2em) 0;
+    };
+    
+  }
+  
+}

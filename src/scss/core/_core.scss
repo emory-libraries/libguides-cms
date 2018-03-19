@@ -1,29 +1,32 @@
+/// Defines body and global page layout styles.
 body {
-  margin: 0;
-  font-size: 16px;
+  margin: 0 auto;
+  padding: 0;
+  font-size: $brandy-font-size;
   font-family: font('body');
   line-height: 1.25;
   color: $brandy-dark-text;
+  max-width: $page-max-width;
   
-  // Scales fonts responsively across various breakpoints.
-  @if( config('responsive-text.enabled') ) {
-    
-    @each $screen, $break in $screens {
-      
-      @if( map-has-key(config('responsive-text.scale'), $screen) ) {
-        
-        $scale: config('responsive-text.scale.#{$screen}');
-        
-        @include breakpoint($break) { font-size: 16px * $scale; }
-        
-      }
-      
-    }
-    
-  }
+  > .container:not(.footer) { @include padding-x( $page-padding ); }
+  
+  .container { @include system-desktop { width: auto !important; } }
   
 }
 
-a {
-  color: color('blue');
+/// Defines link styles.
+a { 
+  @include on-hover-focus( color, color('blue') !important, color('blue') !important ); 
+  text-decoration: underline;
 }
+
+/// Defines headings styles.
+h1 { @include heading(1); margin-top: .5em !important; }
+h2 { @include heading(2); }
+h3 { @include heading(3); }
+h4 { @include heading(4); }
+h5 { @include heading(5); }
+h6 { @include heading(6); }
+
+/// Defines textual styles.
+p { @include margin-y( px(1em) ); }

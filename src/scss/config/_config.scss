@@ -1,15 +1,2 @@
 /// Sets global configurations.
-$config: (
-
-  'page-max-width': 1170px,
-  
-  'responsive-text': (
-    'enabled': true,
-    'scale': (
-      'large': 1.125
-    )
-  )
-  
-);
-
-$brandy-config-map: $config;
+$config: ();

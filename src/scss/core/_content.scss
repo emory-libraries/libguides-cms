@@ -1,0 +1,18 @@
+.s-lib-box {
+  border: 0;
+  box-shadow: none;
+  background-color: transparent;
+  
+  &-title {
+    background-color: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
+    color: inherit !important;
+    
+    @include system-desktop-2-column { margin-top: 0 !important; }
+    
+  }
+  
+  &-content { padding: 0; }
+  
+}

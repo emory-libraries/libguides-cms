@@ -1,0 +1,49 @@
+/// Defines button colors.
+$button-colors: (
+  'primary': color('blue'),
+  'info': color('blue', 'sky'),
+  'success': color('green'),
+  'warning': color('gold'),
+  'danger': color('red')
+);
+
+/// Allows for quick and easy application of button colors.
+@mixin button-color( $type: default ) {
+  
+  @include on-hover-focus( background-color, map-get($button-colors, $type) !important, map-get($button-colors, $type) !important );
+  @include on-hover-focus( color, color-contrast(map-get($button-colors, $type)) !important, color-contrast(map-get($button-colors, $type)) !important );
+  @include on-hover-focus( border-color, map-get($button-colors, $type), map-get($button-colors, $type) );
+  
+}
+
+/// Allows for quick and easy application of button styles.
+@mixin button( $type: default ) {
+  
+  font-size: 1em;
+  font-weight: 400;
+  font-family: font('heading') !important;
+  padding: 4px 12px;
+  white-space: nowrap;
+  line-height: 1.5;
+  user-select: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all .15s ease;
+  border: 1px solid color('grey');
+  color: color('black', 'off');
+  background-image: linear-gradient(to bottom, rgba(color('white'), .25), transparent) !important;
+  
+  @if( $type == primary ) { @include button-color('primary'); }
+  
+  @if( $type == info ) { @include button-color('info'); }
+  
+  @if( $type == success ) { @include button-color('success'); }
+  
+  @if( $type == warning ) { @include button-color('warning'); }
+  
+  @if( $type == danger ) { @include button-color('danger'); }
+  
+  &:hover, &:focus { background-image: none !important; }
+  
+}

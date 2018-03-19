@@ -1,0 +1,11 @@
+.btn {
+  @include button;
+  
+  &-default { @include button; }
+  &-primary { @include button(primary); }
+  &-info { @include button(info); }
+  &-success { @include button(success); }
+  &-warning { @include button(warning); }
+  &-danger { @include button(danger); }
+  
+}

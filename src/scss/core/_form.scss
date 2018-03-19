@@ -1,0 +1,23 @@
+.form-horizontal,
+.form-vertical,
+.ui-dialog-content,
+.ui-widget-content {
+    
+  #{$all-verbage-inputs} {
+    font-family: inherit;
+    font-size: inherit;
+  }
+
+  a { 
+    @include on-hover-focus( color, inherit !important, inherit !important); 
+    font-family: inherit;
+    font-size: inherit;
+  }
+
+  .select2-choice { 
+    color: inherit !important;
+    box-shadow: none !important;
+    background-image: none !important;
+  }
+  
+}

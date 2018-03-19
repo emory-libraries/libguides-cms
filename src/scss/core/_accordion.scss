@@ -1,0 +1,21 @@
+.panel {
+  border-color: color('grey');
+  box-shadow: none;
+    
+  > .panel-heading {
+    background-color: color('grey', 'light');
+    color: color('grey', 'dark');
+    border-color: color('grey');
+    
+    .panel-title { margin: 0 !important; }
+  
+  }
+
+  > .panel-collapse { 
+    padding: 10px; 
+    
+    .panel-body { border-top: none !important; }
+    
+  }
+
+}

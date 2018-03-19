@@ -1,0 +1,59 @@
+#s-lg-guide-header {
+  
+  @include system-mobile {
+    .pull-right, #s-lg-guide-header-search { width: 100%; }
+  };
+
+  #s-lg-guide-search-box {
+    margin: 0;
+    
+    .input-group { 
+      display: block; 
+
+      &-btn {
+        display: block;
+        width: auto;
+        @include position( 0 0 0 null, absolute );
+      }
+
+    }
+
+    #{$all-text-inputs} {
+      display: block;
+      font-size: px(1em);
+      padding: px(.5em);
+      box-sizing: border-box;
+      box-shadow: 0 1px 3px rgba(color('black'), .06);
+      border-radius: 3px;
+      border: 1px solid color('grey');
+      height: auto;
+    }
+
+    #{$all-buttons} {
+      @include button(primary);
+      box-sizing: border-box;
+      @include border-left-radius( 0 );
+      height: 100%;
+      width: (px(1em) + (12px * 2));
+      margin: 0;
+      line-height: 0;
+      font-size: 0;
+
+      @include icon( $fa-var-search ) {
+        @include position( 0, absolute );
+        font-size: px(1em);
+        text-indent: 0;
+        @include absolute-center-contents;
+      };
+
+    }
+
+    .form-control { float: none; z-index: auto; }
+
+    @include system-mobile { width: 100%; margin: px(1em) 0; };
+
+  }
+  
+  &-info { @include clearfix(true); }
+  
+}

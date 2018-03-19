@@ -1,0 +1,21 @@
+/// Adds an outline to an element's text using the `text-shadow` property.
+@mixin text-outline( $outlines... ) {
+  
+  $shadows: ();
+  
+  @each $outline in $outlines {
+    
+    $thickness: first($outline);
+    $color: last($outline);
+    $shadows: join($shadows, (
+      (-$thickness) (-$thickness) 0px $color,
+      (-$thickness) $thickness 0px $color,
+      $thickness (-$thickness) 0px $color,
+      $thickness $thickness 0px $color
+    ), comma);
+    
+  }
+  
+  text-shadow: $shadows;
+  
+}

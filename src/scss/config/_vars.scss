@@ -1,4 +1,21 @@
 /// Defines global variables.
+
+// Transitions
 $transition-timing: .25s;
 $transition-easing: ease;
 $transition-all: all $transition-timing $transition-easing;
+
+// Page Layout
+$page-max-width: 1170px;
+$page-padding: 10px;
+
+// Search
+$search-width: 272px;
+
+/// Configures Brandy.
+$brandy-font-size: 16px;
+$brandy-colors-map: $colors;
+$brandy-light-text: color('white');
+$brandy-dark-text: color('black', 'off');
+$brandy-config-map: $config;
+$brandy-screens-map: $screens;

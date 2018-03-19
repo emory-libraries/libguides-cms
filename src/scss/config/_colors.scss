@@ -5,6 +5,8 @@ $colors: (
     'base': rgb(0, 40, 123),
     'light': rgb(94, 133, 201),
     'powder': rgb(232, 235, 244),
+    'sky': #2083AA,
+    'indigo': rgb(191, 193, 218),
   ),
   
   'gold': (
@@ -39,10 +41,10 @@ $colors: (
   'black': (
     'base': rgb(0, 0, 0),
     'off': rgb(51, 51, 51),
+  ),
+  
+  'red': (
+    'base': #EA3D3D
   )
   
 );
-
-$brandy-colors-map: $colors;
-$brandy-light-text: color('white');
-$brandy-dark-text: color('black');

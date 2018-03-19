@@ -12,7 +12,7 @@
 /// Shorthand for medium breakpoints.
 @mixin medium() {
   
-  @include breakpoint( screen('smamediuml') ) {
+  @include breakpoint( screen('medium') ) {
     
     @content;
     
@@ -24,6 +24,74 @@
 @mixin large() {
   
   @include breakpoint( screen('large') ) {
+    
+    @content;
+    
+  };
+  
+}
+
+/// Shorthand for small and medium breakpoints. 
+@mixin small-medium() {
+  
+  @include small { @content; }
+  @include medium { @content; }
+  
+}
+
+/// Shorthand for medium and large breakpoints. 
+@mixin medium-large() {
+  
+  @include medium { @content; }
+  @include large { @content; }
+  
+}
+
+/// Shorthand for small and large breakpoints. 
+@mixin small-large() {
+  
+  @include small { @content; }
+  @include large { @content; }
+  
+}
+
+/// Shorthand for system mobile breakpoint.
+@mixin system-mobile() {
+  
+  @include breakpoint( screen('system.mobile') ) {
+    
+    @content;
+    
+  };
+  
+}
+
+/// Shorthand for system desktop breakpoint.
+@mixin system-desktop() {
+  
+  @include breakpoint( screen('system.desktop') ) {
+    
+    @content;
+    
+  };
+  
+}
+
+/// Shorthand for system one-column, desktop breakpoint.
+@mixin system-desktop-1-column {
+  
+  @include breakpoint( screen('system.1-column') ) {
+    
+    @content;
+    
+  };
+  
+}
+
+/// Shorthand for system two-column, desktop breakpoint.
+@mixin system-desktop-2-column {
+  
+  @include breakpoint( screen('system.2-column') ) {
     
     @content;
     

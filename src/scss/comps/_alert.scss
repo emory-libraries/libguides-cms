@@ -1,0 +1,42 @@
+/// Defines alert colors.
+$alert-colors: (
+  'default': color('black', 'off'),
+  'info': color('blue'),
+  'success': color('green'),
+  'warning': color('gold'),
+  'danger': color('red')
+);
+
+/// Allows for quick and easy application of alert foreground and background colors.
+@function alert-fg( $type: default ) { @return shade(map-get($alert-colors, $type), 25%); }
+@function alert-bg( $type: default ) { @return tint(map-get($alert-colors, $type), 75%); }
+
+/// Allows for quick and easy application of alert colors.
+@mixin alert-color( $type: default ) {
+  
+  border-color: alert-fg($type);
+  color: alert-fg($type);
+  background-color: alert-bg($type);
+  
+}
+
+/// Allows for quick and easy application of alert styles
+@mixin alert( $type: default ) {
+  
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 0 rgba(color('white'), .5);
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  @include alert-color;
+  
+  @if( $type == info ) { @include alert-color('info'); }
+  
+  @if( $type == success ) { @include alert-color('success'); }
+  
+  @if( $type == warning ) { @include alert-color('warning'); }
+  
+  @if( $type == danger ) { @include alert-color('danger'); }
+  
+}
