@@ -4287,6 +4287,28 @@ header .navbar:not(.s-lib-cmd-bar) .nav {
 #s-lg-tabs-container .nav-tabs li.active:hover, #s-lg-tabs-container .nav-tabs li.active:focus {
   color: white;
 }
+#s-lg-tabs-container .nav-tabs li#s-lg-admin-tab-add {
+  border-color: #cccccc;
+  color: #00287b;
+  border-bottom: 0;
+}
+#s-lg-tabs-container .nav-tabs li#s-lg-admin-tab-add:hover, #s-lg-tabs-container .nav-tabs li#s-lg-admin-tab-add:focus {
+  color: #00287b;
+}
+#s-lg-tabs-container .nav-tabs li#s-lg-admin-tab-add a {
+  background-image: none;
+  border-bottom: 0;
+}
+@media (max-width: 767px) {
+  #s-lg-tabs-container .nav-tabs li#s-lg-admin-tab-add {
+    border: none;
+    width: 100%;
+    background-image: none;
+  }
+  #s-lg-tabs-container .nav-tabs li#s-lg-admin-tab-add #s-lg-add-page-icon {
+    margin: 0;
+  }
+}
 @media (max-width: 767px) {
   #s-lg-tabs-container .nav-tabs li {
     border-radius: 0;
@@ -4332,7 +4354,7 @@ header .navbar:not(.s-lib-cmd-bar) .nav {
   font-weight: inherit !important;
   font-family: inherit;
   font-size: inherit;
-  border-radius: 0 !important;
+  border-radius: inherit !important;
   line-height: inherit;
 }
 @media (max-width: 767px) {

@@ -18,6 +18,28 @@
         @include on-hover-focus( color, color('white'), color('white') );
       }
       
+      // Admin only
+      &#s-lg-admin-tab-add { 
+        border-color: color('grey'); 
+        @include on-hover-focus( color, color('blue'), color('blue') );
+        border-bottom: 0;
+        
+        a {
+          background-image: none;
+          border-bottom: 0;
+        }
+        
+        @include system-mobile {
+          border: none;
+          width: 100%;
+          background-image: none;
+          
+          #s-lg-add-page-icon { margin: 0; }
+          
+        };
+        
+      }
+      
       @include system-mobile {
         border-radius: 0;
         @include on-hover-focus( background-color, transparent, transparent );
@@ -49,7 +71,7 @@
         font-weight: inherit !important;
         font-family: inherit;
         font-size: inherit;
-        border-radius: 0 !important;
+        border-radius: inherit !important;
         line-height: inherit;
       }
       
