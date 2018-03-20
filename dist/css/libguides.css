@@ -4374,3 +4374,7 @@ header .navbar:not(.s-lib-cmd-bar) .nav {
     display: none;
   }
 }
+
+.s-lib-cmd-bar ~ #s-lg-guide-tabs-title-bar {
+  border: 0;
+}

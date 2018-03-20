@@ -18,7 +18,7 @@
         @include on-hover-focus( color, color('white'), color('white') );
       }
       
-      // Admin only
+      // Only seen in the administrator view.
       &#s-lg-admin-tab-add { 
         border-color: color('grey'); 
         @include on-hover-focus( color, color('blue'), color('blue') );
@@ -91,3 +91,6 @@
   @include system-mobile { display: none; }
   
 }
+
+// Hides the bordered title bar in the administrator view.
+.s-lib-cmd-bar ~ #s-lg-guide-tabs-title-bar { border: 0; }
