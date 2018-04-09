@@ -1,0 +1,26 @@
+/// Styles the modal widget window when the `Support` button is clicked in the administrator view.
+.s-la-widget-modal {
+  background-color: rgba(color('black'), .5) !important;
+  
+  .modal-content {
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: none !important;
+    border: 1px solid color('grey', 'dark') !important;
+  }
+  
+  .modal-header { 
+    
+    $background: color('blue');
+    
+    background-color: $background;
+    color: color-contrast($background);
+    
+    #s-la-modal-close {
+      color: color-contrast($background); 
+      text-shadow: none;
+    }
+    
+  }
+  
+}
