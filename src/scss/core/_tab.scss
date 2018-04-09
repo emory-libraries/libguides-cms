@@ -92,5 +92,19 @@
   
 }
 
-// Hides the bordered title bar in the administrator view.
+/// Hides the bordered title bar in the administrator view.
 .s-lib-cmd-bar ~ #s-lg-guide-tabs-title-bar { border: 0; }
+
+/// Styles the sidetab in the administrator view.
+.s-la-widget-sidetab {
+  font-family: font('label') !important;
+  font-weight: normal !important;
+  color: color('white') !important;
+  
+  a { 
+    color: inherit !important; 
+    font-weight: inherit !important;
+    font-family: inherit !important;
+  }
+  
+}
