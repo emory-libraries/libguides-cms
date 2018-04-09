@@ -1,0 +1,5 @@
+.label { @include label; }
+.label-info { @include label(info); }
+.label-success { @include label(success); }
+.label-warning { @include label(warning); }
+.label-danger { @include label(danger); }
