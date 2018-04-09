@@ -1,3 +1,48 @@
+%search-box {
+  display: block;
+  font-size: px(1em);
+  padding: px(.5em);
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(color('black'), .06);
+  border-radius: 3px;
+  border: 1px solid color('grey');
+  height: auto;
+}
+
+%search-button {
+  @include button(primary);
+  box-sizing: border-box;
+  @include border-left-radius( 0 );
+  height: 100%;
+  width: (px(1em) + (12px * 2));
+  margin: 0;
+  line-height: 0;
+  font-size: 0;
+
+  @include icon( $fa-var-search ) {
+    @include position( 0, absolute );
+    font-size: px(1em);
+    text-indent: 0;
+    @include absolute-center-contents;
+  };
+}
+
+%search-wrapper {
+  
+  .input-group { 
+    display: block; 
+
+    &-btn {
+      display: block;
+      width: auto;
+      @include position( 0 0 0 null, absolute );
+    }
+
+  }
+  
+}
+
+/// Styles the search box on standard pages.
 #s-lg-guide-header {
   
   @include system-mobile {
@@ -7,46 +52,11 @@
   #s-lg-guide-search-box {
     margin: 0;
     
-    .input-group { 
-      display: block; 
+    @extend %search-wrapper;
 
-      &-btn {
-        display: block;
-        width: auto;
-        @include position( 0 0 0 null, absolute );
-      }
+    #{$all-text-inputs} { @extends %search-box; }
 
-    }
-
-    #{$all-text-inputs} {
-      display: block;
-      font-size: px(1em);
-      padding: px(.5em);
-      box-sizing: border-box;
-      box-shadow: 0 1px 3px rgba(color('black'), .06);
-      border-radius: 3px;
-      border: 1px solid color('grey');
-      height: auto;
-    }
-
-    #{$all-buttons} {
-      @include button(primary);
-      box-sizing: border-box;
-      @include border-left-radius( 0 );
-      height: 100%;
-      width: (px(1em) + (12px * 2));
-      margin: 0;
-      line-height: 0;
-      font-size: 0;
-
-      @include icon( $fa-var-search ) {
-        @include position( 0, absolute );
-        font-size: px(1em);
-        text-indent: 0;
-        @include absolute-center-contents;
-      };
-
-    }
+    #{$all-buttons} { @extend %search-button; }
 
     .form-control { float: none; z-index: auto; }
 
@@ -55,5 +65,47 @@
   }
   
   &-info { @include clearfix(true); }
+  
+}
+
+/// Styles the search box on search results pages.
+#s-lg-srch-local {
+  
+  @extend %search-wrapper;
+  
+  .form-group, .input-group { overflow: auto; }
+  
+  #s-lg-srch-form { padding-top: 15px; }
+  
+  #{$all-text-inputs} { 
+    @extend %search-box; 
+    box-shadow: none;
+    z-index: auto;
+  }
+  
+  #{$all-buttons} { 
+    
+    &[type="submit"] { @extend %search-button; }
+  
+  }
+  
+}
+
+/// Styles the search contents on search results pages.
+#s-lg-srch-content {
+  
+  @include system-mobile {
+    
+    .s-search-limiter {
+      
+      > div:last-child {
+        display: block !important;
+        @include margin-x( 0 !important );
+        margin-top: 20px;
+      }
+      
+    }
+    
+  };
   
 }
