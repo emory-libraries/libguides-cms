@@ -83,7 +83,8 @@
 %subheader {
   padding: .5em;
   background-color: color('white');
-  color: color('grey', 'dark');
+  @include on-hover-focus(color, color('grey', 'dark') !important, color('grey', 'dark') !important);
+  font-weight: bold;
   border: 1px solid color('grey');
   border-top: 1px solid color('grey', 'light');
   border-left: 1px solid color('grey', 'light');
@@ -103,7 +104,7 @@
     background-color: transparent;
     width: 100%;
     font-weight: inherit;
-    color: inherit;
+    color: inherit !important;
     display: block;
     
     @include system-mobile{ height: px(1.75em); }
@@ -165,7 +166,7 @@ header .navbar:not(.s-lib-cmd-bar) {
   font-weight: normal;
   
   // Needed to ensure that all menu items have the same height.
-  $min-height: 43px;
+  // $command-bar-height
   
   @include system-mobile { border-bottom: 0; }
   
@@ -231,7 +232,7 @@ header .navbar:not(.s-lib-cmd-bar) {
     @include system-mobile { flex-direction: column; }
     
     @include system-desktop {
-      min-height: $min-height;
+      min-height: $command-bar-height;
       
       > li:not(.divider-vertical):not(.divider):not(.s-lib-app-dropdown):not(.dropdown-header) { @include border-y( 0 ); }
       
@@ -266,7 +267,7 @@ header .navbar:not(.s-lib-cmd-bar) {
       
     }
     
-    @include system-desktop { min-height: $min-height !important; }
+    @include system-desktop { min-height: $command-bar-height !important; }
     
   }
   
@@ -279,7 +280,7 @@ header .navbar:not(.s-lib-cmd-bar) {
     @include padding-x( 10px );
     
     @include system-mobile { background-color: color('white', 'off'); }
-    @include system-desktop { min-height: $min-height; }
+    @include system-desktop { min-height: $command-bar-height; }
     
     li {
       
@@ -297,6 +298,19 @@ header .navbar:not(.s-lib-cmd-bar) {
       
     }
     
+  }
+  
+}
+
+/// Styles for the back-end mini command bar.
+#s-lg-guide-mini-cmd-bar {
+  font-family: font('label');
+  font-weight: normal;
+  
+  #{$all-buttons} { 
+    
+    &:not(#s-lg-guide-publishing-status) { border-color: color('grey'); }
+  
   }
   
 }
@@ -360,6 +374,7 @@ header .navbar:not(.s-lib-cmd-bar) {
 
 /// Styles for all navigation.
 .nav { 
+  font-family: font('label');
 
   a { text-decoration: none; }
 
