@@ -1,0 +1,25 @@
+/// Styles for dropdown menus.
+.dropdown-menu { 
+  padding: 0;
+  margin: -1px 0;
+  border: 1px solid color('grey');
+  border-radius: 0;
+  box-shadow: none; 
+  font-family: font('label');
+
+  a { text-decoration: none; }
+  
+  li:not(.dropdown-header):not(.divider) { @extend %libitem; }
+    
+  .dropdown-header { @extend %libheader; }
+
+  .divider { display: none; }
+
+  li { 
+    border: none !important;
+
+    + li { border-top: 1px solid color('grey') !important; }
+
+  }
+
+}
