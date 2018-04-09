@@ -1,5 +1,13 @@
 .ui-dialog {
   
+  .ui-dialog-titlebar { box-shadow: none; }
+  
+  .ui-dialog-title {
+    font-family: font('heading');
+    font-size: px(1.5em);
+    color: color('grey', 'dark');
+  }
+  
   .ui-dialog-titlebar-close {
     
     i {
