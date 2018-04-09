@@ -1,0 +1,12 @@
+/// Styles the addbox in the administrator view.
+.s-lg-admin-addbox { 
+  
+  font-family: font('label'); 
+  font-size: px(.8em);
+  
+  a { 
+    font-family: inherit; 
+    font-size: inherit;
+  }
+
+}
