@@ -1,0 +1,33 @@
+/// Defines label colors.
+$label-colors: (
+  'default': color('black', 'off'),
+  'info': color('blue'),
+  'success': color('green'),
+  'warning': color('gold'),
+  'danger': color('red')
+);
+
+/// Allows for quick and easy application of label colors.
+@mixin label-color( $type: default ) {
+  background-color: map-get($label-colors, $type);
+  color: color-contrast(map-get($label-colors, $type));
+}
+
+/// Allows for quick and easy application of label styles
+@mixin label( $type: default ) {
+  
+  font-family: font('label');
+  font-weight: normal;
+  text-shadow: none !important;
+  padding: .3em .6em;
+  @include label-color;
+  
+  @if( $type == info ) { @include label-color('info'); }
+  
+  @if( $type == success ) { @include label-color('success'); }
+  
+  @if( $type == warning ) { @include label-color('warning'); }
+  
+  @if( $type == danger ) { @include label-color('danger'); }
+  
+}
