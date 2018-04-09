@@ -10,3 +10,6 @@ header {
   }
   
 }
+
+/// Style adjustments for the back-end header container.
+.s-lib-cmd-bar + #s-lg-guide-header { margin-top: px($command-bar-height) + 25px; }
