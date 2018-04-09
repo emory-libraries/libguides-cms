@@ -24,7 +24,8 @@
   
 }
 
-#s-lib-bc { 
+/// Styles breadcrumbs for standard pages.
+#s-lg-guide-header #s-lib-bc { 
   float: left; 
   
   @include system-desktop {
@@ -32,3 +33,6 @@
   };
   
 }
+
+/// Styles breadcrumbs for search results pages.
+#s-lib-public-header #s-lib-bc { float: none; }
